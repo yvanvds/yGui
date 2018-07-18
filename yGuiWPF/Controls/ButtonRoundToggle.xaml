@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:yGuiWPF.Controls">
+
+	<Style x:Key="ToggleButtonRounded" TargetType="ToggleButton">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Content" Value="Button"/>
+		<Setter Property="Background" Value="{DynamicResource ElementBackgroundBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DefaultBrush}"/>
+		<Setter Property="Typography.Capitals" Value="AllSmallCaps"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ToggleButton}">
+					<Border Background="{TemplateBinding Background}" CornerRadius="16" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="4">
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" Value="{DynamicResource ElementHighlightBackgroundBrush}"/>
+			</Trigger>
+			<Trigger Property="IsChecked" Value="True">
+				<Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+
+	</Style>
+
+	<Style x:Key="ToggleButtonRoundedSuccess" TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonRounded}">
+		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+		<Style.Triggers>
+			<Trigger Property="IsChecked" Value="True">
+				<Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<Style x:Key="ToggleButtonRoundedWarning" TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonRounded}">
+		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+		<Style.Triggers>
+			<Trigger Property="IsChecked" Value="True">
+				<Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<Style x:Key="ToggleButtonRoundedDanger" TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonRounded}">
+		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+		<Style.Triggers>
+			<Trigger Property="IsChecked" Value="True">
+				<Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<Style x:Key="ToggleButtonRoundedAccent" TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonRounded}">
+		<Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+		<Style.Triggers>
+			<Trigger Property="IsChecked" Value="True">
+				<Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+
+</ResourceDictionary>
