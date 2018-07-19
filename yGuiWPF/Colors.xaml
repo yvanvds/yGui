@@ -6,7 +6,7 @@
 	<SolidColorBrush x:Key="SuccessBrush" Color="#008800"/>
 	<SolidColorBrush x:Key="DangerBrush" Color="#880000"/>
 	<SolidColorBrush x:Key="WarningBrush" Color="#886600"/>
-	<SolidColorBrush x:Key="AccentBrush" Color="#000088"/>
+	<SolidColorBrush x:Key="AccentBrush" Color="#660066"/>
 
 	<!-- Background Colors -->
 	<SolidColorBrush x:Key="WindowBackgroundBrush" Color="#1a1a1a"/>

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:yGuiWPF.Controls">
+
+	<Style TargetType="local:Knob">
+		<Setter Property="Color" Value="{DynamicResource DefaultBrush}"/>
+	</Style>
+	
+	<Style x:Key="KnobSuccess" TargetType="local:Knob">
+		<Setter Property="Color" Value="{DynamicResource SuccessBrush}"/>
+	</Style>
+
+	<Style x:Key="KnobWarning" TargetType="local:Knob">
+		<Setter Property="Color" Value="{DynamicResource WarningBrush}"/>
+	</Style>
+
+	<Style x:Key="KnobDanger" TargetType="local:Knob">
+		<Setter Property="Color" Value="{DynamicResource DangerBrush}"/>
+	</Style>
+
+	<Style x:Key="KnobAccent" TargetType="local:Knob">
+		<Setter Property="Color" Value="{DynamicResource AccentBrush}"/>
+	</Style>
+
+
+
+</ResourceDictionary>

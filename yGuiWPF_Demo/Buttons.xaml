@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:yGuiWPF_Demo"
+				xmlns:yG="clr-namespace:yGuiWPF.Controls;assembly=yGuiWPF"
 				Background="{DynamicResource WindowBackgroundBrush}"
         mc:Ignorable="d"
         Title="Buttons" Height="450" Width="800">
@@ -23,61 +24,41 @@
 			<RowDefinition/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-			
-		<Button Grid.Column="0" Grid.Row="0" Content="Default" Margin="10"/>
-		<Button Grid.Column="1" Grid.Row="0" Style="{DynamicResource ButtonSuccess}" Content="Success" Margin="10"/>
-		<Button Grid.Column="2" Grid.Row="0" Style="{DynamicResource ButtonWarning}" Content="Warning" Margin="10"/>
-		<Button Grid.Column="3" Grid.Row="0" Style="{DynamicResource ButtonDanger}" Content="Danger" Margin="10"/>
-		<Button Grid.Column="4" Grid.Row="0" Style="{DynamicResource ButtonAccent}" Content="Accent" Margin="10"/>
 
-		<Button Grid.Column="0" Grid.Row="1" Style="{DynamicResource ButtonRounded}" Content="Default" Margin="10"/>
-		<Button Grid.Column="1" Grid.Row="1" Style="{DynamicResource ButtonRoundedSuccess}" Content="Success" Margin="10"/>
-		<Button Grid.Column="2" Grid.Row="1" Style="{DynamicResource ButtonRoundedWarning}" Content="Warning" Margin="10"/>
-		<Button Grid.Column="3" Grid.Row="1" Style="{DynamicResource ButtonRoundedDanger}" Content="Danger" Margin="10"/>
-		<Button Grid.Column="4" Grid.Row="1" Style="{DynamicResource ButtonRoundedAccent}" Content="Accent" Margin="10"/>
+		<yG:Button Grid.Column="0" Grid.Row="0" TextScale="Smallest" Text="Default" Margin="10"/>
+		<yG:Button Grid.Column="1" Grid.Row="0" TextScale="Small" Style="{DynamicResource ButtonSuccess}" Text="Success" Margin="10"/>
+		<yG:Button Grid.Column="2" Grid.Row="0" TextScale="Normal" Style="{DynamicResource ButtonWarning}" Text="Warning" Margin="10"/>
+		<yG:Button Grid.Column="3" Grid.Row="0" TextScale="Big" Style="{DynamicResource ButtonDanger}" Text="Danger" Margin="10"/>
+		<yG:Button Grid.Column="4" Grid.Row="0" TextScale="Huge" Style="{DynamicResource ButtonAccent}" Text="Accent" Margin="10"/>
 
-		<ToggleButton Grid.Column="0" Grid.Row="2" Content="Default" Margin="10"/>
-		<ToggleButton Grid.Column="1" Grid.Row="2" Style="{DynamicResource ToggleButtonSuccess}" Content="Success" Margin="10"/>
-		<ToggleButton Grid.Column="2" Grid.Row="2" Style="{DynamicResource ToggleButtonWarning}" Content="Warning" Margin="10"/>
-		<ToggleButton Grid.Column="3" Grid.Row="2" Style="{DynamicResource ToggleButtonDanger}" Content="Danger" Margin="10"/>
-		<ToggleButton Grid.Column="4" Grid.Row="2" Style="{DynamicResource ToggleButtonAccent}" Content="Accent" Margin="10"/>
+		<yG:Button Grid.Column="0" Grid.Row="1" IsRounded="True" Text="Default" Margin="10"/>
+		<yG:Button Grid.Column="1" Grid.Row="1" IsRounded="True" Style="{DynamicResource ButtonSuccess}" Text="Success" Margin="10"/>
+		<yG:Button Grid.Column="2" Grid.Row="1" IsRounded="True" Style="{DynamicResource ButtonWarning}" Text="Warning" Margin="10"/>
+		<yG:Button Grid.Column="3" Grid.Row="1" IsRounded="True" Style="{DynamicResource ButtonDanger}" Text="Danger" Margin="10"/>
+		<yG:Button Grid.Column="4" Grid.Row="1" IsRounded="True" Style="{DynamicResource ButtonAccent}" Text="Accent" Margin="10"/>
 
-		<ToggleButton Grid.Column="0" Grid.Row="3" Style="{DynamicResource ToggleButtonRounded}" Content="Default" Margin="10"/>
-		<ToggleButton Grid.Column="1" Grid.Row="3" Style="{DynamicResource ToggleButtonRoundedSuccess}" Content="Success" Margin="10"/>
-		<ToggleButton Grid.Column="2" Grid.Row="3" Style="{DynamicResource ToggleButtonRoundedWarning}" Content="Warning" Margin="10"/>
-		<ToggleButton Grid.Column="3" Grid.Row="3" Style="{DynamicResource ToggleButtonRoundedDanger}" Content="Danger" Margin="10"/>
-		<ToggleButton Grid.Column="4" Grid.Row="3" Style="{DynamicResource ToggleButtonRoundedAccent}" Content="Accent" Margin="10"/>
+		<yG:Button Grid.Column="0" Grid.Row="2" IsToggle="True" Text="Default" Margin="10"/>
+		<yG:Button Grid.Column="1" Grid.Row="2" IsToggle="True" Style="{DynamicResource ButtonSuccess}" Text="Success" Margin="10"/>
+		<yG:Button Grid.Column="2" Grid.Row="2" IsToggle="True" Style="{DynamicResource ButtonWarning}" Text="Warning" Margin="10"/>
+		<yG:Button Grid.Column="3" Grid.Row="2" IsToggle="True" Style="{DynamicResource ButtonDanger}" Text="Danger" Margin="10"/>
+		<yG:Button Grid.Column="4" Grid.Row="2" IsToggle="True" Style="{DynamicResource ButtonAccent}" Text="Accent" Margin="10"/>
 
-		<Button Grid.Column="0" Grid.Row="4" Style="{DynamicResource ButtonCircle}"  Margin="5">
-			<Image Source="Images/rocket.png" Margin="5" Stretch="Uniform"/>
-		</Button>
-		<Button Grid.Column="1" Grid.Row="4" Style="{DynamicResource ButtonCircleSuccess}"  Margin="5">
-			<Image Source="Images/rocket.png" Margin="5" Stretch="Uniform"/>
-		</Button>
-		<Button Grid.Column="2" Grid.Row="4" Style="{DynamicResource ButtonCircleWarning}"  Margin="5">
-			<Image Source="Images/rocket.png" Margin="5" Stretch="Uniform"/>
-		</Button>
-		<Button Grid.Column="3" Grid.Row="4" Style="{DynamicResource ButtonCircleDanger}"  Margin="5">
-			<Image Source="Images/rocket.png" Margin="5" Stretch="Uniform"/>
-		</Button>
-		<Button Grid.Column="4" Grid.Row="4" Style="{DynamicResource ButtonCircleAccent}"  Margin="5">
-			<Image Source="Images/rocket.png" Margin="5" Stretch="Uniform"/>
-		</Button>
+		<yG:Button Grid.Column="0" Grid.Row="3" IsToggle="True" IsRounded="True" Text="{}{{mdi-volume-high}}" TextScale="Big" Margin="10"/>
+		<yG:Button Grid.Column="1" Grid.Row="3" IsToggle="True" IsRounded="True" Style="{DynamicResource ButtonSuccess}" Text="{}{{mdi-volume-medium}}" TextScale="Big" Margin="10"/>
+		<yG:Button Grid.Column="2" Grid.Row="3" IsToggle="True" IsRounded="True" Style="{DynamicResource ButtonWarning}" Text="{}{{mdi-volume-low}}" TextScale="Big" Margin="10"/>
+		<yG:Button Grid.Column="3" Grid.Row="3" IsToggle="True" IsRounded="True" Style="{DynamicResource ButtonDanger}" Text="{}{{mdi-volume-off}}" TextScale="Big" Margin="10"/>
+		<yG:Button Grid.Column="4" Grid.Row="3" IsToggle="True" IsRounded="True" Style="{DynamicResource ButtonAccent}" Text="{}{{mdi-comment-multiple-outline}}" TextScale="Big" Margin="10"/>
 
-		<ToggleButton Grid.Column="0" Grid.Row="5" Style="{DynamicResource ToggleButtonCircle}"  Margin="5">
-			<Image Source="Images/music.png" Margin="5" Stretch="Uniform"/>
-		</ToggleButton>
-		<ToggleButton Grid.Column="1" Grid.Row="5" Style="{DynamicResource ToggleButtonCircleSuccess}"  Margin="5">
-			<Image Source="Images/music.png" Margin="5" Stretch="Uniform"/>
-		</ToggleButton>
-		<ToggleButton Grid.Column="2" Grid.Row="5" Style="{DynamicResource ToggleButtonCircleWarning}"  Margin="5">
-			<Image Source="Images/music.png" Margin="5" Stretch="Uniform"/>
-		</ToggleButton>
-		<ToggleButton Grid.Column="3" Grid.Row="5" Style="{DynamicResource ToggleButtonCircleDanger}"  Margin="5">
-			<Image Source="Images/music.png" Margin="5" Stretch="Uniform"/>
-		</ToggleButton>
-		<ToggleButton Grid.Column="4" Grid.Row="5" Style="{DynamicResource ToggleButtonCircleAccent}"  Margin="5">
-			<Image Source="Images/music.png" Margin="5" Stretch="Uniform"/>
-		</ToggleButton>
+		<yG:RoundButton Grid.Column="0" Grid.Row="4" Text="{}{{mdi-bookmark-music}}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="1" Grid.Row="4" Text="{}{{mdi-file-music}}" Style="{DynamicResource ButtonSuccess}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="2" Grid.Row="4" Text="{}{{mdi-library-music}}" Style="{DynamicResource ButtonWarning}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="3" Grid.Row="4" Text="{}{{mdi-music}}" Style="{DynamicResource ButtonDanger}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="4" Grid.Row="4" Text="{}{{mdi-music-note}}" Style="{DynamicResource ButtonAccent}" TextScale="Big" Margin="10"/>
+
+		<yG:RoundButton Grid.Column="0" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-sixteenth}}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="1" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-eighth}}" Style="{DynamicResource ButtonSuccess}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="2" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-quarter}}" Style="{DynamicResource ButtonWarning}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="3" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-bluetooth}}" Style="{DynamicResource ButtonDanger}" TextScale="Big" Margin="10"/>
+		<yG:RoundButton Grid.Column="4" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-off}}" Style="{DynamicResource ButtonAccent}" TextScale="Big" Margin="10"/>
 	</Grid>
 </Window>

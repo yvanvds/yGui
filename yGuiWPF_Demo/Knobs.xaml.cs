@@ -10,31 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace yGuiWPF_Demo
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for Knobs.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class Knobs : Window
 	{
-		public MainWindow()
+		public Knobs()
 		{
 			InitializeComponent();
 		}
 
-		private void ShowButtons(object sender, RoutedEventArgs e)
-		{
-			var window = new Buttons();
-			window.ShowDialog();
-		}
-
-		private void ShowKnobs(object sender, RoutedEventArgs e)
-		{
-			var window = new Knobs();
-			window.ShowDialog();
-		}
 	}
 }

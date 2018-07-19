@@ -1,0 +1,38 @@
+﻿<Window x:Class="yGuiWPF_Demo.Knobs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:yGuiWPF_Demo"
+				xmlns:yG="clr-namespace:yGuiWPF.Controls;assembly=yGuiWPF"
+        mc:Ignorable="d"
+				Background="{DynamicResource WindowBackgroundBrush}"
+        Title="Knobs" Height="600" Width="800">
+    <Grid>
+	
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<yG:Knob Grid.Row="0" Grid.Column="0" DisplayName="Vol" Minimum="5" Maximum="10" Value="8" />
+		<yG:Knob Style="{DynamicResource KnobSuccess}" Grid.Row="0" Grid.Column="1" DisplayName="Freq" Minimum="0" Maximum="100" Value="70" />
+		<yG:Knob Style="{DynamicResource KnobWarning}" Grid.Row="0" Grid.Column="2" DisplayName="Tilt" Minimum="-10" Maximum="10" Value="0" />
+		<yG:Knob Style="{DynamicResource KnobDanger}" Grid.Row="0" Grid.Column="3" DisplayName="Exp." Minimum="0" Maximum="1" Value="0.5" />
+		<yG:Knob Style="{DynamicResource KnobAccent}" Grid.Row="0" Grid.Column="4" DisplayName="Fake" Minimum="900" Maximum="1100" Value="1050" />
+
+		<yG:Knob Grid.Row="1" Grid.Column="0" DisplayName="Vol" ShowValue="False" Minimum="5" Maximum="10" Value="8" />
+		<yG:Knob Style="{DynamicResource KnobSuccess}" Grid.Row="1" Grid.Column="1" ShowValue="False" Minimum="0" Maximum="100" Value="70" />
+		<yG:Knob Style="{DynamicResource KnobWarning}" Grid.Row="1" Grid.Column="2" ShowValue="False" Minimum="-10" Maximum="10" Value="0" />
+		<yG:Knob Style="{DynamicResource KnobDanger}" Grid.Row="1" Grid.Column="3" ShowValue="False" Minimum="0" Maximum="1" Value="0.5" />
+		<yG:Knob Style="{DynamicResource KnobAccent}" Grid.Row="1" Grid.Column="4" ShowValue="False" Minimum="900" Maximum="1100" Value="1050" />
+	</Grid>
+</Window>

@@ -3,11 +3,17 @@
                     xmlns:local="clr-namespace:yGuiWPF">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="Colors.xaml"/>
+		
+		<!-- Buttons -->
 		<ResourceDictionary Source="Controls/Button.xaml"/>
 		<ResourceDictionary Source="Controls/ButtonRound.xaml"/>
 		<ResourceDictionary Source="Controls/ButtonToggle.xaml"/>
 		<ResourceDictionary Source="Controls/ButtonRoundToggle.xaml"/>
 		<ResourceDictionary Source="Controls/ButtonCircle.xaml"/>
 		<ResourceDictionary Source="Controls/ButtonCircleToggle.xaml"/>
+		
+		<!-- Knobs -->
+		<ResourceDictionary Source="Controls/Knob.xaml"/>
+
 	</ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

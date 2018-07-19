@@ -21,6 +21,7 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 
-		<Button Content="Buttons" Click="ShowButtons"/>
+		<Button Grid.Column="0" Grid.Row="0" Margin="10" Content="Buttons" Click="ShowButtons"/>
+		<Button Grid.Column="1" Grid.Row="0" Margin="10" Content="Knobs" Click="ShowKnobs"/>
 	</Grid>
 </Window>

@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:yGuiWPF">
+                    xmlns:local="clr-namespace:yGuiWPF"
+										xmlns:controls="clr-namespace:yGuiWPF.Controls">
 
-		<Style TargetType="Button">
+	<!--<Style TargetType="Button">
 
 			<Setter Property="Foreground" Value="White"/>
 			<Setter Property="Content" Value="Button"/>
@@ -23,22 +24,38 @@
 					<Setter Property="Background" Value="{DynamicResource ElementHighlightBackgroundBrush}"/>
 				</Trigger>
 			</Style.Triggers>
-		</Style>
+		</Style>-->
 
-	<Style x:Key="ButtonSuccess" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+	<Style x:Key="ButtonSuccess" TargetType="controls:Button">
+		<Setter Property="ForeGround" Value="{DynamicResource SuccessBrush}"/>
 	</Style>
 
-	<Style x:Key="ButtonWarning" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+	<Style x:Key="ButtonWarning" TargetType="controls:Button">
+		<Setter Property="ForeGround" Value="{DynamicResource WarningBrush}"/>
 	</Style>
 
-	<Style x:Key="ButtonDanger" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+	<Style x:Key="ButtonDanger" TargetType="controls:Button">
+		<Setter Property="ForeGround" Value="{DynamicResource DangerBrush}"/>
 	</Style>
 
-	<Style x:Key="ButtonAccent" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-		<Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+	<Style x:Key="ButtonAccent" TargetType="controls:Button">
+		<Setter Property="ForeGround" Value="{DynamicResource AccentBrush}"/>
+	</Style>
+
+	<Style x:Key="RoundButtonSuccess" TargetType="controls:RoundButton">
+		<Setter Property="ForeGround" Value="{DynamicResource SuccessBrush}"/>
+	</Style>
+
+	<Style x:Key="RoundButtonWarning" TargetType="controls:RoundButton">
+		<Setter Property="ForeGround" Value="{DynamicResource WarningBrush}"/>
+	</Style>
+
+	<Style x:Key="RoundButtonDanger" TargetType="controls:RoundButton">
+		<Setter Property="ForeGround" Value="{DynamicResource DangerBrush}"/>
+	</Style>
+
+	<Style x:Key="RoundButtonAccent" TargetType="controls:RoundButton">
+		<Setter Property="ForeGround" Value="{DynamicResource AccentBrush}"/>
 	</Style>
 
 </ResourceDictionary>
