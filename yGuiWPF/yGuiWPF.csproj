@@ -109,8 +109,10 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\Knob.cs" />
+    <Compile Include="Controls\Led.cs" />
     <Compile Include="Controls\RoundButton.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Invalidator.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

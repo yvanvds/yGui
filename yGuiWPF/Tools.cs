@@ -21,5 +21,10 @@ namespace yGuiWPF
 			Color color = brush.Color;
 			return new SKColor(color.R, color.G, color.B, color.A);
 		}
+
+		public static SKColor ToSkia(Color color)
+		{
+			return new SKColor(color.R, color.G, color.B, color.A);
+		}
 	}
 }

@@ -100,7 +100,7 @@ namespace yGuiWPF.Controls
 			 new FrameworkPropertyMetadata(Brushes.White, FrameworkPropertyMetadataOptions.AffectsRender, TextColorChanged)
 			 );
 
-		public static void SetTextColor(UIElement element, Color value)
+		public static void SetTextColor(UIElement element, SolidColorBrush value)
 		{
 			element.SetValue(TextColorProperty, value);
 		}
@@ -339,7 +339,23 @@ namespace yGuiWPF.Controls
 			mouseDown = false;
 			Mouse.Capture(null);
 			e.Handled = true;
+			OnClick();
 		}
+
+		public static RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(Button));
+
+		public event RoutedEventHandler Click
+		{
+			add { AddHandler(ClickEvent, value); }
+			remove { RemoveHandler(ClickEvent, value); }
+		}
+
+		protected virtual void OnClick()
+		{
+			RoutedEventArgs args = new RoutedEventArgs(ClickEvent, this);
+			RaiseEvent(args);
+		}
+
 		#endregion Mouse
 
 		protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)

@@ -23,5 +23,6 @@
 
 		<Button Grid.Column="0" Grid.Row="0" Margin="10" Content="Buttons" Click="ShowButtons"/>
 		<Button Grid.Column="1" Grid.Row="0" Margin="10" Content="Knobs" Click="ShowKnobs"/>
+		<Button Grid.Column="3" Grid.Row="0" Margin="10" Content="Leds" Click="ShowLeds"/>
 	</Grid>
 </Window>

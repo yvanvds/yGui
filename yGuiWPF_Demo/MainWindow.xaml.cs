@@ -36,5 +36,11 @@ namespace yGuiWPF_Demo
 			var window = new Knobs();
 			window.ShowDialog();
 		}
+
+		private void ShowLeds(object sender, RoutedEventArgs e)
+		{
+			var window = new Leds();
+			window.ShowDialog();
+		}
 	}
 }
