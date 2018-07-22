@@ -111,6 +111,7 @@
     <Compile Include="Controls\Knob.cs" />
     <Compile Include="Controls\Led.cs" />
     <Compile Include="Controls\RoundButton.cs" />
+    <Compile Include="Controls\XYPad.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Invalidator.cs" />
     <Compile Include="Tools.cs" />
