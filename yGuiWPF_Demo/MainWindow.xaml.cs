@@ -48,5 +48,17 @@ namespace yGuiWPF_Demo
 			var window = new XYPads();
 			window.ShowDialog();
 		}
+
+		private void ShowSliders(object sender, RoutedEventArgs e)
+		{
+			var window = new Sliders();
+			window.ShowDialog();
+		}
+
+		private void ShowMTPad(object sender, RoutedEventArgs e)
+		{
+			var window = new MultiTouchPad();
+			window.ShowDialog();
+		}
 	}
 }

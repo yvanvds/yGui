@@ -25,5 +25,7 @@
 		<Button Grid.Column="1" Grid.Row="0" Margin="10" Content="Knobs" Click="ShowKnobs"/>
 		<Button Grid.Column="2" Grid.Row="0" Margin="10" Content="XYPads" Click="ShowXYPads"/>
 		<Button Grid.Column="3" Grid.Row="0" Margin="10" Content="Leds" Click="ShowLeds"/>
+		<Button Grid.Column="0" Grid.Row="1" Margin="10" Content="Sliders" Click="ShowSliders"/>
+		<Button Grid.Column="1" Grid.Row="1" Margin="10" Content="MTPad" Click="ShowMTPad"/>
 	</Grid>
 </Window>

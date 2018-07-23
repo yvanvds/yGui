@@ -14,6 +14,13 @@
     <WarningLevel>4</WarningLevel>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PackageId>yGuiWPF</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Description>WPF Gui Controls for Audio Applications</Description>
+    <Authors>Mute</Authors>
+    <Title>yGui - WPF</Title>
+    <Owners>yvan vander sanden</Owners>
+    <PackageProjectUrl>https://github.com/yvanvds/yGui</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,7 +117,9 @@
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\Knob.cs" />
     <Compile Include="Controls\Led.cs" />
+    <Compile Include="Controls\MTPad.cs" />
     <Compile Include="Controls\RoundButton.cs" />
+    <Compile Include="Controls\Slider.cs" />
     <Compile Include="Controls\XYPad.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Invalidator.cs" />

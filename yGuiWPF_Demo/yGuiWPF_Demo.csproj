@@ -68,6 +68,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MultiTouchPad.xaml.cs">
+      <DependentUpon>MultiTouchPad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sliders.xaml.cs">
+      <DependentUpon>Sliders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XYPads.xaml.cs">
       <DependentUpon>XYPads.xaml</DependentUpon>
     </Compile>
@@ -104,6 +110,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MultiTouchPad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sliders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="XYPads.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

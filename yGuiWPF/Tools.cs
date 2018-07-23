@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace yGuiWPF
@@ -25,6 +26,11 @@ namespace yGuiWPF
 		public static SKColor ToSkia(Color color)
 		{
 			return new SKColor(color.R, color.G, color.B, color.A);
+		}
+
+		public static SKRect ToSkia(Rect rect)
+		{
+			return new SKRect((float)rect.Left, (float)rect.Top, (float)rect.Right, (float)rect.Bottom);
 		}
 	}
 }
