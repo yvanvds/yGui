@@ -131,7 +131,7 @@ namespace yGuiWPF.Controls
 
 		public event EventHandler<TouchArgs> OnTouch;
 
-		private void GenerateTouchEVent(TouchPoint p)
+		private void GenerateTouchEvent(TouchPoint p)
 		{
 			for(int i = 0; i < 10; i++)
 			{
@@ -140,7 +140,7 @@ namespace yGuiWPF.Controls
 					double x = p.Position.X / this.ActualWidth;
 					double y = p.Position.Y / this.ActualHeight;
 					double size = p.Size.Width > p.Size.Height ? p.Size.Width : p.Size.Height;
-					OnTouch(this, new TouchArgs(i, p.Action, new Point(x, y), size));
+					OnTouch?.Invoke(this, new TouchArgs(i, p.Action, new Point(x, y), size));
 					break;
 				}
 			}
@@ -167,7 +167,7 @@ namespace yGuiWPF.Controls
 				{
 					registeredPoints[i] = p.TouchDevice.Id;
 					touchPoints.Add(p.TouchDevice.Id, p);
-					GenerateTouchEVent(p);
+					GenerateTouchEvent(p);
 					break;
 				}
 			}
@@ -182,7 +182,7 @@ namespace yGuiWPF.Controls
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
 				touchPoints[p.TouchDevice.Id] = p;
-				GenerateTouchEVent(p);
+				GenerateTouchEvent(p);
 			}
 			
 			e.Handled = true;
@@ -195,7 +195,7 @@ namespace yGuiWPF.Controls
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
 				touchPoints.Remove(p.TouchDevice.Id);
-				GenerateTouchEVent(p);
+				GenerateTouchEvent(p);
 			}
 			for (int i = 0; i < 10; i++)
 			{
@@ -214,7 +214,7 @@ namespace yGuiWPF.Controls
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
 				touchPoints.Remove(p.TouchDevice.Id);
-				GenerateTouchEVent(p);
+				GenerateTouchEvent(p);
 			}
 			for (int i = 0; i < 10; i++)
 			{

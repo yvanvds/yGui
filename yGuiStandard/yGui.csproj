@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>yGuiXamarin</PackageId>
+    <Authors>yvan vander sanden</Authors>
+    <Company>Mute</Company>
+    <Product>yGui - Xamarin</Product>
+    <Title>yGui - Xamarin</Title>
+    <Description>A collection of Audio Controls for Xamarin Forms.</Description>
+    <PackageTags>gui controls audio</PackageTags>
+    <RepositoryUrl></RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageProjectUrl>https://github.com/yvanvds/yGui</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.60.2" />
+    <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Extended.Iconify.MaterialDesignIcons" Version="2.0.0" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.60.2" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+  </ItemGroup>
+
+</Project>

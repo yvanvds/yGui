@@ -20,7 +20,7 @@ namespace yGuiWPF.Controls
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(XYPad), new FrameworkPropertyMetadata(typeof(XYPad)));
 			valuePaint = new SKPaint()
 			{
-				TextSize = 10,
+				TextSize = 20,
 				IsAntialias = true,
 				Color = new SKColor(255,255,255),
 				IsStroke = false
@@ -163,7 +163,7 @@ namespace yGuiWPF.Controls
 		{
 			((XYPad)d).InvalidateVisual();
 		}
-		#endregion TextColor
+		#endregion Border
 
 		#region IsRounded
 		public static readonly DependencyProperty IsRoundedProperty =
@@ -271,18 +271,16 @@ namespace yGuiWPF.Controls
 		SKPoint valueToScreen(Point valuePos)
 		{
 			SKPoint result = new SKPoint();
-			Point size = new Point();
-			size.X = this.ActualWidth;
-			size.Y = this.ActualHeight;
+
 			if (Centered)
 			{
-				result.X = (float)valuePos.X * ((float)size.X * 0.5f - margin*2) + ((float)size.X * 0.5f);
-				result.Y = (float)-valuePos.Y * ((float)size.Y * 0.5f - margin*2) + ((float)size.Y * 0.5f);
+				result.X = (float)valuePos.X * (actualSize.X * 0.5f - margin*2) + (actualSize.X * 0.5f);
+				result.Y = (float)-valuePos.Y * (actualSize.Y * 0.5f - margin*2) + (actualSize.Y * 0.5f);
 			}
 			else
 			{
-				result.X = (margin * 2) + ((float)valuePos.X * ((float)size.X - margin * 4));
-				result.Y = (margin * 2) + ((1-(float)valuePos.Y) * ((float)size.Y - margin * 4));
+				result.X = (margin * 2) + ((float)valuePos.X * (actualSize.X - margin * 4));
+				result.Y = (margin * 2) + ((1-(float)valuePos.Y) * (actualSize.Y - margin * 4));
 			}
 			return result;
 		}
@@ -318,11 +316,25 @@ namespace yGuiWPF.Controls
 		#endregion ShowValue
 
 		#region Mouse
+		public static RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent("OnValueChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(XYPad));
+
+		public event RoutedEventHandler OnValueChanged
+		{
+			add { AddHandler(ValueChangedEvent, value); }
+			remove { RemoveHandler(ValueChangedEvent, value); }
+		}
+
+		private void GenerateValueChangeEvent()
+		{
+			RoutedEventArgs args = new RoutedEventArgs(ValueChangedEvent, this);
+			RaiseEvent(args);
+		}
+
 		bool mouseDown = false;
 		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
 		{
 			Value = screenToValue(e.GetPosition(this));
-
+			GenerateValueChangeEvent();
 			Mouse.Capture(this);
 			e.Handled = true;
 			mouseDown = true;
@@ -333,7 +345,7 @@ namespace yGuiWPF.Controls
 			if(mouseDown)
 			{
 				Value = screenToValue(e.GetPosition(this));
-
+				GenerateValueChangeEvent();
 				e.Handled = true;
 			}
 		}
@@ -358,11 +370,12 @@ namespace yGuiWPF.Controls
 
 		#endregion Mouse
 		float margin = 0;
+		SKPoint actualSize = new SKPoint();
 		protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
 		{
-			int width = e.Info.Width;
-			int height = e.Info.Height;
-			int size = width < height ? width : height;
+			actualSize.X = e.Info.Width;
+			actualSize.Y = e.Info.Height;
+			int size = actualSize.X < actualSize.Y ? (int)actualSize.X : (int)actualSize.Y;
 			margin = size * 0.05f;
 
 			SKSurface surface = e.Surface;
@@ -371,10 +384,10 @@ namespace yGuiWPF.Controls
 			canvas.Clear();
 
 			SKPoint center = new SKPoint();
-			center.X = width / 2.0f;
-			center.Y = height / 2.0f;
+			center.X = actualSize.X / 2.0f;
+			center.Y = actualSize.Y / 2.0f;
 
-			SKRect outerRect = new SKRect(margin, margin, width - margin, height - margin);
+			SKRect outerRect = new SKRect(margin, margin, actualSize.X - margin, actualSize.Y - margin);
 
 			backgroundPaint.Color = Tools.ToSkia(BackGround);
 			borderPaint.Color = Tools.ToSkia(Border);
@@ -386,23 +399,23 @@ namespace yGuiWPF.Controls
 			if(Centered)
 			{
 				centerPaint.Color = new SKColor((byte)(BackGround.Color.R * 0.9), (byte)(BackGround.Color.G * 0.9), (byte)(BackGround.Color.B * 0.9));
-				canvas.DrawLine(new SKPoint(margin, center.Y), new SKPoint(width - margin, center.Y), centerPaint);
-				canvas.DrawLine(new SKPoint(center.X, margin), new SKPoint(height - margin, center.X), centerPaint);
+				canvas.DrawLine(new SKPoint(margin, center.Y), new SKPoint(actualSize.X - margin, center.Y), centerPaint);
+				canvas.DrawLine(new SKPoint(center.X, margin), new SKPoint(actualSize.Y - margin, center.X), centerPaint);
 			}
 
 			SKPoint position = valueToScreen(Value);
 			
 
-			canvas.DrawLine(new SKPoint(0f + margin, position.Y), new SKPoint(width - margin, position.Y), indicatorPaint);
-			canvas.DrawLine(new SKPoint(position.X, 0f + margin), new SKPoint(position.X, height - margin), indicatorPaint); 
+			canvas.DrawLine(new SKPoint(0f + margin, position.Y), new SKPoint(actualSize.X - margin, position.Y), indicatorPaint);
+			canvas.DrawLine(new SKPoint(position.X, 0f + margin), new SKPoint(position.X, actualSize.Y - margin), indicatorPaint); 
 			canvas.DrawCircle(new SKPoint(position.X, position.Y), size * 0.05f, indicatorPaint);
 
 			canvas.DrawRoundRect(outerRect, corner, corner, borderPaint);
 
 			if(ShowValue)
 			{
-				canvas.DrawText("X: " + value.X.ToString("n2"), new SKPoint(width - 50, 30), valuePaint);
-				canvas.DrawText("Y: " + value.Y.ToString("n2"), new SKPoint(width -50, 40), valuePaint);
+				canvas.DrawText("X: " + value.X.ToString("n2"), new SKPoint(actualSize.X - 120, 60), valuePaint);
+				canvas.DrawText("Y: " + value.Y.ToString("n2"), new SKPoint(actualSize.X - 120, 90), valuePaint);
 			}
 		}
 	}

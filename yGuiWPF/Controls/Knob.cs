@@ -251,6 +251,7 @@ namespace yGuiWPF.Controls
 				if (this.value > maximum) this.value = maximum;
 				SetValue(ValueProperty, this.value);
 				InvalidateVisual();
+				GenerateValueChangeEvent();
 			}
 		}
 
@@ -265,7 +266,8 @@ namespace yGuiWPF.Controls
 			{
 				knob.value = knob.maximum;
 			}
-			((Knob)d).InvalidateVisual();
+			knob.InvalidateVisual();
+			knob.GenerateValueChangeEvent();
 		}
 		#endregion Value
 
@@ -305,6 +307,21 @@ namespace yGuiWPF.Controls
 		#endregion DisplayName
 
 		#region Mouse
+		public class ValueArgs : EventArgs
+		{
+			public ValueArgs(float value)
+			{
+				Value = value;
+			}
+			public float Value { get; set; }
+		}
+		public event EventHandler<ValueArgs> OnValueChange;
+
+		private void GenerateValueChangeEvent()
+		{
+			OnValueChange?.Invoke(this, new ValueArgs(Value));
+		}
+
 		bool mouseDown = false;
 		Point mousePos = new Point();
 		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -332,10 +349,12 @@ namespace yGuiWPF.Controls
 			mousePos = newPoint;
 			float inc = Math.Abs(delta.X) > Math.Abs(delta.Y) ? (float)delta.X : (float)delta.Y;
 			float range = maximum - minimum;
-			if(range != 0) Value += inc * range / 100;
+			if (range != 0)
+			{
+				Value += inc * range / 100;
+			}
 			e.Handled = true;
 		}
-
 		#endregion Mouse
 
 		protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)

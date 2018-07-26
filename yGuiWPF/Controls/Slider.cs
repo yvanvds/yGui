@@ -140,7 +140,7 @@ namespace yGuiWPF.Controls
 
 		public static void HandleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
-			((XYPad)d).InvalidateVisual();
+			((Slider)d).InvalidateVisual();
 		}
 		#endregion TextColor
 
@@ -256,6 +256,7 @@ namespace yGuiWPF.Controls
 				if (this.value > maximum) this.value = maximum;
 				SetValue(ValueProperty, this.value);
 				InvalidateVisual();
+				GenerateValueChangeEvent();
 			}
 		}
 
@@ -272,15 +273,35 @@ namespace yGuiWPF.Controls
 				slider.value = slider.maximum;
 			}
 			((Slider)d).InvalidateVisual();
+			slider.GenerateValueChangeEvent();
 		}
 		#endregion Value
 
 		#region Mouse
+		public static RoutedEvent ValueChangedEvent = 
+			EventManager.RegisterRoutedEvent(
+				"Changed", 
+				RoutingStrategy.Bubble, 
+				typeof(RoutedEventHandler),
+				typeof(Slider));
+
+		public event RoutedEventHandler Changed
+		{
+			add { AddHandler(ValueChangedEvent, value); }
+			remove { RemoveHandler(ValueChangedEvent, value); }
+		}
+
+		private void GenerateValueChangeEvent()
+		{
+			RoutedEventArgs args = new RoutedEventArgs(ValueChangedEvent, this);
+			RaiseEvent(args);
+		}
+
 		bool mouseDown = false;
 		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
 		{
 			mouseDown = true;
-			SetFromMousePos(e.GetPosition(this));
+			SetValueFromMousePos(e.GetPosition(this));
 			Mouse.Capture(this);
 			e.Handled = true;
 		}
@@ -295,11 +316,11 @@ namespace yGuiWPF.Controls
 		protected override void OnMouseMove(MouseEventArgs e)
 		{
 			if (!mouseDown) return;
-			SetFromMousePos(e.GetPosition(this));
+			SetValueFromMousePos(e.GetPosition(this));
 			e.Handled = true;
 		}
 
-		private void SetFromMousePos(Point pos)
+		private void SetValueFromMousePos(Point pos)
 		{
 			float range = maximum - minimum;
 			float result;
@@ -310,7 +331,7 @@ namespace yGuiWPF.Controls
 			{
 				result = (float)pos.X / (float)ActualWidth * range;
 			}
-			Value = result;
+			Value = minimum + result;
 		}
 
 		#endregion Mouse
@@ -336,7 +357,7 @@ namespace yGuiWPF.Controls
 
 			if (height > width)
 			{
-				float target = Value / range * height;
+				float target = (Value - minimum) / range * height;
 				canvas.DrawRect(new SKRect(0, height, width, height - target), foregroundPaint);
 
 				float handle = target;
@@ -347,8 +368,15 @@ namespace yGuiWPF.Controls
 				canvas.DrawRect(new SKRect(0, height - handle + 4, width, height - handle), handlePaint);
 			} else
 			{
-				float target = Value / range * width;
+				float target = (Value - minimum) / range * width;
 				canvas.DrawRect(new SKRect(0, 0, target, height), foregroundPaint);
+
+				float handle = target;
+				if (handle < 4)
+				{
+					handle = 4;
+				}
+				canvas.DrawRect(new SKRect(handle - 4, height, handle, 0), handlePaint);
 			}
 		}
 	}

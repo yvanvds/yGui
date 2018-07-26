@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:yGuiXamarin"
+						 xmlns:yG="clr-namespace:yGui;assembly=yGui"
+						 BackgroundColor="#1a1a1a"
+             x:Class="yGuiXamarin.MainPage">
+
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+			
+		<yG:Button Grid.Row="0" Grid.Column="0" TextScale="Normal" Text="Buttons" ForeGround="Green" Pressed="ShowButtons"/>
+		<yG:Button Grid.Row="1" Grid.Column="0" Text="Knobs" ForeGround="Green" Pressed="ShowKnobs"/>
+		<yG:Button Grid.Row="2" Grid.Column="0" Text="Sliders" ForeGround="Green" Pressed="ShowSliders"/>
+		<yG:Button Grid.Row="0" Grid.Column="1" Text="Leds" ForeGround="Green" Pressed="ShowLeds"/>
+		<yG:Button Grid.Row="1" Grid.Column="1" Text="XYPads" ForeGround="Green" Pressed="ShowXYPads"/>
+		<yG:Button Grid.Row="2" Grid.Column="1" Text="MTPad" ForeGround="Green" Pressed="ShowMTPad"/>
+
+	</Grid>
+
+</ContentPage>

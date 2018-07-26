@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C555E189-1FFD-4CBD-B375-F596483CCF23}</ProjectGuid>
     <OutputType>library</OutputType>
@@ -16,11 +16,12 @@
     </NuGetPackageImportStamp>
     <PackageId>yGuiWPF</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
-    <Description>WPF Gui Controls for Audio Applications</Description>
-    <Authors>Mute</Authors>
+    <Description>Gui Controls for Audio Applications</Description>
+    <Authors>mute</Authors>
     <Title>yGui - WPF</Title>
     <Owners>yvan vander sanden</Owners>
     <PackageProjectUrl>https://github.com/yvanvds/yGui</PackageProjectUrl>
+    <Summary />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

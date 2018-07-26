@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yG="clr-namespace:yGui;assembly=yGui"
+						 BackgroundColor="#1a1a1a"
+						 x:Class="yGuiXamarin.XYPadPage">
+    <ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<yG:XYPad Grid.Row="0" ShowValue="True" Centered="False" ForeGround="Green"/>
+			<yG:XYPad Grid.Row="1" ShowValue="True" ForeGround="Fuchsia"/>
+			<yG:XYPad Grid.Row="2" ShowValue="True" IsRounded="True" ForeGround="Navy"/>
+
+		</Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:yG="clr-namespace:yGui;assembly=yGui"
+						 BackgroundColor="#1a1a1a"
+             x:Class="yGuiXamarin.KnobPage">
+    <ContentPage.Content>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<yG:Knob Grid.Row="0" Grid.Column="0" DisplayName="Freq" Color="Moccasin"/>
+			<yG:Knob Grid.Row="0" Grid.Column="1" DisplayName="Vol" Color="Fuchsia"/>
+			<yG:Knob Grid.Row="1" Grid.Column="0" DisplayName="Parm 1" Color="Tomato"/>
+			<yG:Knob Grid.Row="1" Grid.Column="1" DisplayName="Parm 2" Color="Firebrick"/>
+			<yG:Knob Grid.Row="2" Grid.Column="0" DisplayName="LPF" Color="Gold"/>
+			<yG:Knob Grid.Row="2" Grid.Column="1" DisplayName="RES" Color="Sienna"/>
+		</Grid>
+    </ContentPage.Content>
+</ContentPage>

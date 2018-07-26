@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.8</version>
+    <title>yGui WPF</title>
+    <authors>yvan vander sanden</authors>
+    <owners>mute</owners>
+    <projectUrl>https://github.com/yvanvds/yGui</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Gui Controls for Audio Applications</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>gui controls audio</tags>
+  </metadata>
+</package>

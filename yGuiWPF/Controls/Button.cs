@@ -342,7 +342,12 @@ namespace yGuiWPF.Controls
 			OnClick();
 		}
 
-		public static RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(Button));
+		public static RoutedEvent ClickEvent = 
+			EventManager.RegisterRoutedEvent(
+				"Click", 
+				RoutingStrategy.Bubble, 
+				typeof(RoutedEventHandler), 
+				typeof(Button));
 
 		public event RoutedEventHandler Click
 		{

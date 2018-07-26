@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:yG="clr-namespace:yGui;assembly=yGui"
+						 BackgroundColor="#1a1a1a"
+             x:Class="yGuiXamarin.ButtonPage">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+	<Grid.RowDefinitions>
+		<RowDefinition/>
+		<RowDefinition/>
+		<RowDefinition/>
+		<RowDefinition/>
+		<RowDefinition/>
+		<RowDefinition/>
+	</Grid.RowDefinitions>
+
+	<yG:Button Grid.Column="0" Grid.Row="0" TextScale="Smallest" ForeGround="Green" Text="Smallest" Margin="10"/>
+	<yG:Button Grid.Column="1" Grid.Row="0" TextScale="Small" ForeGround="Red" Text="Small" Margin="10"/>
+	<yG:Button Grid.Column="2" Grid.Row="0" TextScale="Normal" ForeGround="Blue" Text="Normal" Margin="10"/>
+
+	<yG:Button Grid.Column="0" Grid.Row="1" TextScale="Big" ForeGround="Green" IsRounded="True" Text="Big" Margin="10"/>
+	<yG:Button Grid.Column="1" Grid.Row="1" TextScale="Huge" ForeGround="Red" IsRounded="True" Text="Huge" Margin="10"/>
+	<yG:Button Grid.Column="2" Grid.Row="1" IsRounded="True" ForeGround="Blue" Text="Normal" Margin="10"/>
+
+	<yG:Button Grid.Column="0" Grid.Row="2" IsToggle="True" ForeGround="Green" Text="Toggle" Margin="10"/>
+	<yG:Button Grid.Column="1" Grid.Row="2" IsToggle="True" ForeGround="Red" Text="Toggle" Margin="10"/>
+	<yG:Button Grid.Column="2" Grid.Row="2" IsToggle="True" ForeGround="Blue" Text="Toggle" Margin="10"/>
+
+	<yG:Button Grid.Column="0" Grid.Row="3" IsToggle="True" IsRounded="True" ForeGround="Green" Text="{}{{mdi-volume-high}}" TextScale="Big" Margin="10"/>
+	<yG:Button Grid.Column="1" Grid.Row="3" IsToggle="True" IsRounded="True" ForeGround="Red" Text="{}{{mdi-volume-medium}}" TextScale="Big" Margin="10"/>
+	<yG:Button Grid.Column="2" Grid.Row="3" IsToggle="True" IsRounded="True" ForeGround="Blue" Text="{}{{mdi-volume-low}}" TextScale="Big" Margin="10"/>
+
+
+	<yG:RoundButton Grid.Column="0" Grid.Row="4" Text="{}{{mdi-bookmark-music}}" ForeGround="Accent" TextScale="Big" Margin="10"/>
+	<yG:RoundButton Grid.Column="1" Grid.Row="4" Text="{}{{mdi-file-music}}" ForeGround="Brown" TextScale="Big" Margin="10"/>
+	<yG:RoundButton Grid.Column="2" Grid.Row="4" Text="{}{{mdi-library-music}}" ForeGround="Aqua" TextScale="Big" Margin="10"/>
+
+	<yG:RoundButton Grid.Column="0" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-sixteenth}}" ForeGround="Fuchsia" TextScale="Big" Margin="10"/>
+	<yG:RoundButton Grid.Column="1" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-eighth}}" ForeGround="Gold" TextScale="Big" Margin="10"/>
+	<yG:RoundButton Grid.Column="2" Grid.Row="5" IsToggle="True" Text="{}{{mdi-music-note-quarter}}" ForeGround="DeepPink" TextScale="Big" Margin="10"/>
+
+	</Grid>
+</ContentPage>
