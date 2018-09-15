@@ -12,6 +12,7 @@
     <RepositoryUrl></RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageProjectUrl>https://github.com/yvanvds/yGui</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +21,7 @@
     <PackageReference Include="SkiaSharp.Extended.Iconify.MaterialDesignIcons" Version="2.0.0" />
     <PackageReference Include="SkiaSharp.Views" Version="1.60.2" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.2" />
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>
 
 </Project>

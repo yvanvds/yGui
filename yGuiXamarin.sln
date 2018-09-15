@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yGuiXamarin.iOS", "yGuiXama
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yGuiXamarin.UWP", "yGuiXamarin\yGuiXamarin.UWP\yGuiXamarin.UWP.csproj", "{126A5DBB-1725-4155-9A4A-22526EBD4F7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yGuiXamarin", "yGuiXamarin\yGuiXamarin\yGuiXamarin.csproj", "{37FF77CB-EF9C-45FD-85A3-92ACB037225C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yGuiXamarinTest", "yGuiXamarin\yGuiXamarin\yGuiXamarinTest.csproj", "{37FF77CB-EF9C-45FD-85A3-92ACB037225C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yGui", "yGuiStandard\yGui.csproj", "{BB1D9D57-4CC6-4656-9A94-D6B87C7B64B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yGui", "yGuiStandard\yGui.csproj", "{BB1D9D57-4CC6-4656-9A94-D6B87C7B64B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
