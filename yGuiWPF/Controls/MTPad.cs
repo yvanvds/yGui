@@ -33,7 +33,7 @@ namespace yGuiWPF.Controls
 
 		static MTPad()
 		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(MTPad), new FrameworkPropertyMetadata(typeof(MTPad)));
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(Slider), new FrameworkPropertyMetadata(typeof(Slider)));
 
 		}
 
