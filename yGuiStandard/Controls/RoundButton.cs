@@ -21,6 +21,7 @@ namespace yGui
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = width / 2.0f;

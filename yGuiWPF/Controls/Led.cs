@@ -36,6 +36,8 @@ namespace yGuiWPF.Controls
 				Style = SKPaintStyle.Fill,
 				IsAntialias = true
 			};
+
+			Visible = true;
 		}
 
 		#region Color
@@ -108,6 +110,37 @@ namespace yGuiWPF.Controls
 		}
 		#endregion TextScale
 
+		#region Visible
+		public static readonly DependencyProperty VisibleProperty =
+		 DependencyProperty.Register(
+			 nameof(Visible),
+			 typeof(bool),
+			 typeof(Led),
+			 new FrameworkPropertyMetadata(false)
+			 );
+
+		public static void SetVisible(UIElement element, bool value)
+		{
+			element.SetValue(VisibleProperty, value);
+		}
+
+		public static bool GetVisible(UIElement element)
+		{
+			return (bool)element.GetValue(VisibleProperty);
+		}
+
+		public bool Visible
+		{
+			get => (bool)(GetValue(VisibleProperty));
+			set
+			{
+				SetValue(VisibleProperty, value);
+				InvalidateVisual();
+			}
+		}
+
+		#endregion Visible
+
 		#region Blink
 		private float alpha = 0;
 		private float stepSize;
@@ -130,6 +163,7 @@ namespace yGuiWPF.Controls
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
 
 			SKPoint center = new SKPoint(width / 2f, height / 2f);
 			float radius = (size * 0.5f - margin) * Scale;

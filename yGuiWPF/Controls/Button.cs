@@ -54,6 +54,8 @@ namespace yGuiWPF.Controls
 				TextAlign = SKTextAlign.Center,
 				SubpixelText = true
 			};
+
+			Visible = true;
 		}
 
 		#region ForeGround
@@ -320,6 +322,37 @@ namespace yGuiWPF.Controls
 		}
 		#endregion TextScale
 
+		#region Visible
+		public static readonly DependencyProperty VisibleProperty =
+		 DependencyProperty.Register(
+			 nameof(Visible),
+			 typeof(bool),
+			 typeof(Button),
+			 new FrameworkPropertyMetadata(false)
+			 );
+
+		public static void SetVisible(UIElement element, bool value)
+		{
+			element.SetValue(VisibleProperty, value);
+		}
+
+		public static bool GetVisible(UIElement element)
+		{
+			return (bool)element.GetValue(VisibleProperty);
+		}
+
+		public bool Visible
+		{
+			get => (bool)(GetValue(VisibleProperty));
+			set
+			{
+				SetValue(VisibleProperty, value);
+				InvalidateVisual();
+			}
+		}
+
+		#endregion Visible
+
 		#region Mouse
 		bool mouseDown = false;
 		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -374,6 +407,7 @@ namespace yGuiWPF.Controls
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = width / 2.0f;

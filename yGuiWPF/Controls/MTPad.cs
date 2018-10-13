@@ -53,6 +53,8 @@ namespace yGuiWPF.Controls
 				StrokeWidth = 1,
 				IsAntialias = true
 			};
+
+			Visible = true;
 		}
 
 		#region ForeGround
@@ -125,6 +127,37 @@ namespace yGuiWPF.Controls
 		}
 		#endregion BackGround
 
+		#region Visible
+		public static readonly DependencyProperty VisibleProperty =
+		 DependencyProperty.Register(
+			 nameof(Visible),
+			 typeof(bool),
+			 typeof(MTPad),
+			 new FrameworkPropertyMetadata(false)
+			 );
+
+		public static void SetVisible(UIElement element, bool value)
+		{
+			element.SetValue(VisibleProperty, value);
+		}
+
+		public static bool GetVisible(UIElement element)
+		{
+			return (bool)element.GetValue(VisibleProperty);
+		}
+
+		public bool Visible
+		{
+			get => (bool)(GetValue(VisibleProperty));
+			set
+			{
+				SetValue(VisibleProperty, value);
+				InvalidateVisual();
+			}
+		}
+
+		#endregion Visible
+
 		#region Touches
 		private Dictionary<int, TouchPoint> touchPoints = new Dictionary<int, TouchPoint>();
 		int[] registeredPoints = new int[10] {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
@@ -148,6 +181,7 @@ namespace yGuiWPF.Controls
 
 		protected override void OnTouchDown(TouchEventArgs e)
 		{
+			if (!Visible) return;
 			TouchPoint p = e.GetTouchPoint(this);
 			if(touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
@@ -178,6 +212,7 @@ namespace yGuiWPF.Controls
 
 		protected override void OnTouchMove(TouchEventArgs e)
 		{
+			if (!Visible) return;
 			TouchPoint p = e.GetTouchPoint(this);
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
@@ -191,6 +226,7 @@ namespace yGuiWPF.Controls
 
 		protected override void OnTouchLeave(TouchEventArgs e)
 		{
+			if (!Visible) return;
 			TouchPoint p = e.GetTouchPoint(this);
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
@@ -210,6 +246,7 @@ namespace yGuiWPF.Controls
 
 		protected override void OnTouchUp(TouchEventArgs e)
 		{
+			if (!Visible) return;
 			TouchPoint p = e.GetTouchPoint(this);
 			if (touchPoints.ContainsKey(p.TouchDevice.Id))
 			{
@@ -237,6 +274,7 @@ namespace yGuiWPF.Controls
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
 
 			backgroundPaint.Color = Tools.ToSkia(BackGround);
 			canvas.DrawRect(new SKRect(0, 0, width, height), backgroundPaint);

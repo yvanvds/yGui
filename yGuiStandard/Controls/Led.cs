@@ -53,6 +53,19 @@ namespace yGui
 		}
 		#endregion Scale
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
 		#region Blink
 		private float alpha = 0;
 		private float stepSize;
@@ -64,6 +77,8 @@ namespace yGui
 			InvalidateSurface();
 		}
 		#endregion Blink
+
+
 
 		protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
 		{
@@ -78,6 +93,7 @@ namespace yGui
 			border.StrokeWidth = margin;
 
 			canvas.Clear();
+			if (!visible) return;
 
 			SKPoint center = new SKPoint(width / 2f, height / 2f);
 			float radius = (size * 0.5f - margin) * Scale;

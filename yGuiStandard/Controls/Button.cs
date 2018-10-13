@@ -84,6 +84,20 @@ namespace yGui
 		}
 		#endregion Text
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
+
 		#region TextColor
 		private Color textColor = Colors.White;
 
@@ -140,6 +154,7 @@ namespace yGui
 		#region Touch
 		protected override void OnTouch(SKTouchEventArgs e)
 		{
+			if (!visible) return;
 			if(e.ActionType == SKTouchAction.Pressed)
 			{
 				if (IsToggle) Toggled = !Toggled;
@@ -165,6 +180,7 @@ namespace yGui
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = width / 2.0f;

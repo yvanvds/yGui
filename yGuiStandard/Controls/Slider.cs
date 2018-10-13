@@ -82,6 +82,19 @@ namespace yGui
 		}
 		#endregion Maximum
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
 		#region Value
 		private float value = 0;
 
@@ -108,7 +121,8 @@ namespace yGui
 		bool touchActive = false;
 		protected override void OnTouch(SKTouchEventArgs e)
 		{
-			if(e.ActionType == SKTouchAction.Pressed)
+			if (!visible) return;
+			if (e.ActionType == SKTouchAction.Pressed)
 			{
 				touchActive = true;
 				SetFromTouchPos(e.Location);
@@ -155,6 +169,7 @@ namespace yGui
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!visible) return;
 
 			backgroundPaint.Color = Tools.ToSkia(backGround);
 			canvas.DrawRect(new SKRect(0, 0, actualWidth, actualHeight), backgroundPaint);

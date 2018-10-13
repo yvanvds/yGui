@@ -23,5 +23,10 @@ namespace yGuiWPF_Demo
 		{
 			InitializeComponent();
 		}
+
+		private void Button1_Click(object sender, RoutedEventArgs e)
+		{
+			Button2.Visible = !Button2.Visible;
+		}
 	}
 }

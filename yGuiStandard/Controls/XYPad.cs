@@ -91,6 +91,19 @@ namespace yGui
 			set { centered = value; InvalidateSurface(); }
 		}
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
 		public Point value = new Point();
 		public Point Value
 		{
@@ -168,7 +181,8 @@ namespace yGui
 
 		protected override void OnTouch(SKTouchEventArgs e)
 		{
-			if(e.ActionType == SKTouchAction.Pressed)
+			if (!visible) return;
+			if (e.ActionType == SKTouchAction.Pressed)
 			{
 				Value = screenToValue(e.Location);
 				GenerateValueChangedEvent();
@@ -195,6 +209,7 @@ namespace yGui
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = (float)actualsize.X / 2.0f;

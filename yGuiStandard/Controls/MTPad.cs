@@ -60,6 +60,19 @@ namespace yGui
 			set { backGround = value; InvalidateSurface(); }
 		}
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
 		#region Touch
 		private Dictionary<long, SKPoint> touchPoints = new Dictionary<long, SKPoint>();
 		long[] registeredPoints = new long[10] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
@@ -98,7 +111,8 @@ namespace yGui
 
 		protected override void OnTouch(SKTouchEventArgs e)
 		{
-			switch(e.ActionType)
+			if (!visible) return;
+			switch (e.ActionType)
 			{
 				case SKTouchAction.Pressed:
 					clearID(e.Id);
@@ -149,6 +163,7 @@ namespace yGui
 			SKSurface surface = e.Surface;
 			SKCanvas canvas = surface.Canvas;
 			canvas.Clear();
+			if (!visible) return;
 
 			backgroundPaint.Color = Tools.ToSkia(BackGround);
 			canvas.DrawRect(new SKRect(0, 0, width, height), backgroundPaint);

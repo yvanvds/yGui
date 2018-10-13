@@ -58,6 +58,8 @@ namespace yGuiWPF.Controls
 				StrokeWidth = 1,
 				IsAntialias = true
 			};
+
+			Visible = true;
 		}
 			
 		#region ForeGround
@@ -129,6 +131,37 @@ namespace yGuiWPF.Controls
 			((XYPad)d).InvalidateVisual();
 		}
 		#endregion BackGround
+
+		#region Visible
+		public static readonly DependencyProperty VisibleProperty =
+		 DependencyProperty.Register(
+			 nameof(Visible),
+			 typeof(bool),
+			 typeof(XYPad),
+			 new FrameworkPropertyMetadata(false)
+			 );
+
+		public static void SetVisible(UIElement element, bool value)
+		{
+			element.SetValue(VisibleProperty, value);
+		}
+
+		public static bool GetVisible(UIElement element)
+		{
+			return (bool)element.GetValue(VisibleProperty);
+		}
+
+		public bool Visible
+		{
+			get => (bool)(GetValue(VisibleProperty));
+			set
+			{
+				SetValue(VisibleProperty, value);
+				InvalidateVisual();
+			}
+		}
+
+		#endregion Visible
 
 		#region Border
 		public static readonly DependencyProperty BorderProperty =
@@ -333,6 +366,7 @@ namespace yGuiWPF.Controls
 		bool mouseDown = false;
 		protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
 		{
+			if (!Visible) return;
 			Value = screenToValue(e.GetPosition(this));
 			GenerateValueChangeEvent();
 			Mouse.Capture(this);
@@ -342,7 +376,8 @@ namespace yGuiWPF.Controls
 
 		protected override void OnMouseMove(MouseEventArgs e)
 		{
-			if(mouseDown)
+			if (!Visible) return;
+			if (mouseDown)
 			{
 				Value = screenToValue(e.GetPosition(this));
 				GenerateValueChangeEvent();
@@ -352,7 +387,8 @@ namespace yGuiWPF.Controls
 
 		protected override void OnMouseLeave(MouseEventArgs e)
 		{
-			if(mouseDown)
+			if (!Visible) return;
+			if (mouseDown)
 			{
 				Mouse.Capture(null);
 				mouseDown = false;
@@ -361,7 +397,8 @@ namespace yGuiWPF.Controls
 
 		protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
 		{
-			if(mouseDown)
+			if (!Visible) return;
+			if (mouseDown)
 			{
 				Mouse.Capture(null);
 				mouseDown = false;
@@ -382,6 +419,7 @@ namespace yGuiWPF.Controls
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = actualSize.X / 2.0f;

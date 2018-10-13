@@ -101,6 +101,19 @@ namespace yGui
 			}
 		}
 
+		#region visible
+		private bool visible = true;
+		public bool Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				InvalidateSurface();
+			}
+		}
+		#endregion visible
+
 		private float value = 0f;
 		public float Value
 		{
@@ -132,7 +145,8 @@ namespace yGui
 		SKPoint touchPos;
 		protected override void OnTouch(SKTouchEventArgs e)
 		{
-			if(e.ActionType == SKTouchAction.Pressed)
+			if (!visible) return;
+			if (e.ActionType == SKTouchAction.Pressed)
 			{
 				touchPos = e.Location;
 			} else if (e.ActionType == SKTouchAction.Moved)
@@ -170,6 +184,7 @@ namespace yGui
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!visible) return;
 
 			SKPoint center = new SKPoint();
 			center.X = width / 2.0f;

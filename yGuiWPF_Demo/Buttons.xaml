@@ -26,8 +26,8 @@
 		</Grid.RowDefinitions>
 
 		<yG:Button Grid.Column="0" Grid.Row="0" TextScale="Smallest" Text="Default" Margin="10"/>
-		<yG:Button Grid.Column="1" Grid.Row="0" TextScale="Small" Style="{DynamicResource ButtonSuccess}" Text="Success" Margin="10"/>
-		<yG:Button Grid.Column="2" Grid.Row="0" TextScale="Normal" Style="{DynamicResource ButtonWarning}" Text="Warning" Margin="10"/>
+		<yG:Button Name="Button1" Click="Button1_Click" Grid.Column="1" Grid.Row="0" TextScale="Small" Style="{DynamicResource ButtonSuccess}" Text="Success" Margin="10"/>
+		<yG:Button Name="Button2" Grid.Column="2" Grid.Row="0" TextScale="Normal" Style="{DynamicResource ButtonWarning}" Text="Warning" Margin="10"/>
 		<yG:Button Grid.Column="3" Grid.Row="0" TextScale="Big" Style="{DynamicResource ButtonDanger}" Text="Danger" Margin="10"/>
 		<yG:Button Grid.Column="4" Grid.Row="0" TextScale="Huge" Style="{DynamicResource ButtonAccent}" Text="Accent" Margin="10"/>
 

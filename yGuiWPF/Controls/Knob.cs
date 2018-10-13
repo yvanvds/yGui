@@ -66,6 +66,8 @@ namespace yGuiWPF.Controls
 				IsStroke = false,
 				TextAlign = SKTextAlign.Center
 			};
+
+			Visible = true;
 		}
 
 		#region Color
@@ -221,6 +223,37 @@ namespace yGuiWPF.Controls
 		}
 		#endregion Maximum
 
+		#region Visible
+		public static readonly DependencyProperty VisibleProperty =
+		 DependencyProperty.Register(
+			 nameof(Visible),
+			 typeof(bool),
+			 typeof(Knob),
+			 new FrameworkPropertyMetadata(false)
+			 );
+
+		public static void SetVisible(UIElement element, bool value)
+		{
+			element.SetValue(VisibleProperty, value);
+		}
+
+		public static bool GetVisible(UIElement element)
+		{
+			return (bool)element.GetValue(VisibleProperty);
+		}
+
+		public bool Visible
+		{
+			get => (bool)(GetValue(VisibleProperty));
+			set
+			{
+				SetValue(VisibleProperty, value);
+				InvalidateVisual();
+			}
+		}
+
+		#endregion Visible
+
 		#region Value
 		private float value = 0;
 		public static readonly DependencyProperty ValueProperty =
@@ -366,6 +399,8 @@ namespace yGuiWPF.Controls
 			SKCanvas canvas = surface.Canvas;
 
 			canvas.Clear();
+			if (!Visible) return;
+
 			int size = width < height ? width : height;
 			float margin = size * 0.05f;
 
